@@ -33,6 +33,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass'
 gem 'pry'
+gem 'rack-cors', :require => 'rack/cors'
+gem 'alchemy-api-rb', :require => 'alchemy_api'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

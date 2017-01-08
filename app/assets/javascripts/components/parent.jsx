@@ -1,18 +1,34 @@
 class Parent extends React.Component {
 
-  var token = <authentication-token>;
-  var wsURI = 'wss://stream.watsonplatform.net/speech-to-text/api/v1/recognize?watson-token=' +
-    token + '&model=es-ES_BroadbandModel';
-  var websocket = new WebSocket(wsURI);
-  websocket.onopen = function(evt) { onOpen(evt) };
-  websocket.onclose = function(evt) { onClose(evt) };
-  websocket.onmessage = function(evt) { onMessage(evt) };
-  websocket.onerror = function(evt) { onError(evt) };
+  handleSubmit(e) {
+    e.preventDefault()
+    let urlBase = "https://api.fullcontact.com/v2/person.json?email="
+    let inputText = $("#inputText").val();
+    urlBase = urlBase+"bart@fullcontact.com"    
 
-  render() {
+    $.ajax({
+      url: "https://api.fullcontact.com/v2/person.json?email=bart@fullcontact.com",
+      method: 'GET',
+      headers: { 'X-FullContact-APIKey': 'empty',
+      "Access-Control-Allow-Credentials": true
+       },
+  }).done(function(response){
+    debugger
+    console.log(response)
+  })
+}
 
-    return (
+render() {
+  return (
 
-      )
-  }
+      <div className="jumbotron">
+        <h1>Write Text Here:</h1>
+          <div className="form-group">
+            <textarea className="form-control" rows="5" id="inputText"></textarea>
+          </div>
+        <p><button className="btn btn-lg btn-success blue" role="button" onClick={this.handleSubmit}>Submit</button></p>
+      </div>
+
+  )
+}
 }
