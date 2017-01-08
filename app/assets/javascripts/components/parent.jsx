@@ -1,18 +1,21 @@
 class Parent extends React.Component {
 
-  var token = <authentication-token>;
-  var wsURI = 'wss://stream.watsonplatform.net/speech-to-text/api/v1/recognize?watson-token=' +
-    token + '&model=es-ES_BroadbandModel';
-  var websocket = new WebSocket(wsURI);
-  websocket.onopen = function(evt) { onOpen(evt) };
-  websocket.onclose = function(evt) { onClose(evt) };
-  websocket.onmessage = function(evt) { onMessage(evt) };
-  websocket.onerror = function(evt) { onError(evt) };
-
-  render() {
-
-    return (
-
-      )
+  handleSubmit(e) {
+  debugger
+    console.log("worked")
   }
+
+render() {
+  return (
+
+      <div className="jumbotron">
+        <h1>Text appears here:</h1>
+          <div className="form-group">
+            <textarea className="form-control" rows="5" id="comment"></textarea>
+          </div>
+        <p><button className="btn btn-lg btn-success blue" role="button" onClick={this.handleSubmit}>Press to Start Recording</button></p>
+      </div>
+
+  )
+}
 }
